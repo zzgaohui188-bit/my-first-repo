@@ -1,0 +1,37 @@
+<section class="section">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+    <div class="grid" style="grid-template-columns: repeat(2,minmax(0,1fr)); align-items:start;">
+      <div data-product-gallery>
+        {%- if product.featured_media -%}
+          <img src="{{ product.featured_media | image_url: width: 1200 }}" alt="{{ product.title | escape }}" data-gallery-main>
+        {%- endif -%}
+        <div class="cert-row" style="margin-top:.6rem;">
+          {%- for media in product.media limit: 5 -%}
+            <img src="{{ media | image_url: width: 120 }}" alt="{{ media.alt | escape }}" width="80" height="80" data-gallery-thumb data-src="{{ media | image_url: width: 1200 }}" data-alt="{{ media.alt | escape }}" style="cursor:pointer;border:1px solid #cbd5e1;border-radius:8px;">
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div>
+        <h1>{{ product.title }}</h1>
+        <p><strong>SKU:</strong> {{ product.selected_or_first_available_variant.sku | default: 'N/A' }}</p>
+        <div>{{ product.description }}</div>
+        <div class="cert-row">
+          {%- if product.metafields.custom.cert_fda == true or product.metafields.custom.cert_fda.value == true -%}{% render 'cert-badge', label: 'FDA' %}{%- endif -%}
+          {%- if product.metafields.custom.cert_msds == true or product.metafields.custom.cert_msds.value == true -%}{% render 'cert-badge', label: 'MSDS' %}{%- endif -%}
+          {%- if product.metafields.custom.cert_ce == true or product.metafields.custom.cert_ce.value == true -%}{% render 'cert-badge', label: 'CE' %}{%- endif -%}
+          {%- if product.metafields.custom.cert_gmp == true or product.metafields.custom.cert_gmp.value == true -%}{% render 'cert-badge', label: 'GMP' %}{%- endif -%}
+        </div>
+        {% render 'inquiry-button', product: product %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Main",
+  "settings": []
+}
+{% endschema %}

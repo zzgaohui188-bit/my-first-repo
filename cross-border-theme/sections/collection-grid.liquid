@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+    <h1 class="section-heading">{{ collection.title }}</h1>
+    <form method="get">
+      <label for="SortBy">Sort by</label>
+      <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+        {%- for option in collection.sort_options -%}
+          <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+        {%- endfor -%}
+      </select>
+    </form>
+
+    {% paginate collection.products by 16 %}
+      <div class="grid collection-grid">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+      <div class="pagination">{{ paginate | default_pagination }}</div>
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <div class="grid advantages-grid">
+      {%- for block in section.blocks -%}
+        <article class="adv-item">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Platform Advantages",
+  "max_blocks": 8,
+  "settings": [{ "type": "text", "id": "heading", "label": "Heading", "default": "Platform Advantages" }],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Advantage",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Verified Suppliers" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Every supplier is screened for export readiness." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Platform Advantages" }]
+}
+{% endschema %}

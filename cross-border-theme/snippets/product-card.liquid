@@ -1,0 +1,26 @@
+<article class="card product-card">
+  <a href="{{ product.url }}">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title }}
+    {%- endif -%}
+  </a>
+  <div class="card-content">
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="product-meta">{{ product.vendor }}</p>
+    <div class="cert-row">
+      {%- if product.metafields.custom.cert_fda == true or product.metafields.custom.cert_fda.value == true -%}
+        {% render 'cert-badge', label: 'FDA' %}
+      {%- endif -%}
+      {%- if product.metafields.custom.cert_msds == true or product.metafields.custom.cert_msds.value == true -%}
+        {% render 'cert-badge', label: 'MSDS' %}
+      {%- endif -%}
+      {%- if product.metafields.custom.cert_ce == true or product.metafields.custom.cert_ce.value == true -%}
+        {% render 'cert-badge', label: 'CE' %}
+      {%- endif -%}
+      {%- if product.metafields.custom.cert_gmp == true or product.metafields.custom.cert_gmp.value == true -%}
+        {% render 'cert-badge', label: 'GMP' %}
+      {%- endif -%}
+    </div>
+    <a class="btn btn-outline" href="{{ product.url }}">{{ 'general.view_details' | t }}</a>
+  </div>
+</article>

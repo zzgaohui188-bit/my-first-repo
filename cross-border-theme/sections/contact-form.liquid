@@ -1,0 +1,38 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {% form 'contact', class: 'contact-form' %}
+      {%- if form.posted_successfully? -%}
+        <p>Thank you. We received your inquiry.</p>
+      {%- endif -%}
+      {{ form.errors | default_errors }}
+      <div class="form-grid">
+        <div>
+          <label for="ContactFormName">{{ 'contact.name' | t }}</label>
+          <input id="ContactFormName" type="text" name="contact[name]" required>
+        </div>
+        <div>
+          <label for="ContactFormEmail">{{ 'contact.email' | t }}</label>
+          <input id="ContactFormEmail" type="email" name="contact[email]" required>
+        </div>
+        <div>
+          <label for="ContactFormPhone">{{ 'contact.phone' | t }}</label>
+          <input id="ContactFormPhone" type="tel" name="contact[phone]">
+        </div>
+        <div class="full">
+          <label for="ContactFormMessage">{{ 'contact.message' | t }}</label>
+          <textarea id="ContactFormMessage" name="contact[body]" rows="5" required></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">{{ 'contact.submit' | t }}</button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [{ "type": "text", "id": "heading", "label": "Heading", "default": "Contact Us" }],
+  "presets": [{ "name": "Contact Form" }]
+}
+{% endschema %}

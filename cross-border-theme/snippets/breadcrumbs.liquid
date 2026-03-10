@@ -1,0 +1,9 @@
+<nav aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  {%- if collection -%}
+    / <span>{{ collection.title }}</span>
+  {%- endif -%}
+  {%- if product -%}
+    / <span>{{ product.title }}</span>
+  {%- endif -%}
+</nav>
