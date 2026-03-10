@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": { "type": "product-main", "settings": {} },
+    "specs": { "type": "product-specs", "settings": {} },
+    "contact": { "type": "contact-form", "settings": { "heading": "Request Quote" } }
+  },
+  "order": ["main", "specs", "contact"]
+}

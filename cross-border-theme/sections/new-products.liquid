@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <div class="grid product-grid">
+      {%- assign items = section.settings.collection.products | sort: 'created_at' | reverse -%}
+      {%- for product in items limit: section.settings.products_to_show -%}
+        {% render 'product-card', product: product %}
+      {%- else -%}
+        <p>No new products available.</p>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Products",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "New Products" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products", "min": 4, "max": 12, "step": 1, "default": 8 }
+  ],
+  "presets": [{ "name": "New Products" }]
+}
+{% endschema %}

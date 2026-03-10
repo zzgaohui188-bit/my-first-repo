@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary color",
+        "default": "#1A73E8"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary color",
+        "default": "#0F172A"
+      },
+      {
+        "type": "text",
+        "id": "footer_text",
+        "label": "Footer text",
+        "default": "Global B2B Sourcing Platform"
+      },
+      {
+        "type": "url",
+        "id": "whatsapp_link",
+        "label": "WhatsApp link"
+      }
+    ]
+  }
+]

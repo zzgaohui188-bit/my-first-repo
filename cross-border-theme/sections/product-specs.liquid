@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Specifications</h2>
+    <table class="spec-table">
+      <tr>
+        <td>Weight</td>
+        <td>{{ product.metafields.custom.spec_weight | metafield_text | default: '-' }}</td>
+      </tr>
+      <tr>
+        <td>Volume</td>
+        <td>{{ product.metafields.custom.spec_volume | metafield_text | default: '-' }}</td>
+      </tr>
+      <tr>
+        <td>Material</td>
+        <td>{{ product.metafields.custom.spec_material | metafield_text | default: '-' }}</td>
+      </tr>
+      <tr>
+        <td>Origin</td>
+        <td>{{ product.metafields.custom.spec_origin | metafield_text | default: '-' }}</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Specs",
+  "settings": []
+}
+{% endschema %}

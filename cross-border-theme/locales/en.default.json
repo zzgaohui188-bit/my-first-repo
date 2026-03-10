@@ -1,0 +1,16 @@
+{
+  "general": {
+    "browse_products": "Browse Products",
+    "view_details": "View Details",
+    "request_quote": "Request Quote",
+    "search": "Search"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send Inquiry"
+  }
+}

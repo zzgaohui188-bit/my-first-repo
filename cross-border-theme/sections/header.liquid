@@ -1,0 +1,36 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="{{ routes.root_url }}">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 180 | image_tag: alt: shop.name }}
+      {%- else -%}
+        <strong>{{ shop.name }}</strong>
+      {%- endif -%}
+    </a>
+
+    <nav class="site-nav" data-mobile-nav>
+      <ul class="nav-list">
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Products</a></li>
+        <li><a href="/collections">Categories</a></li>
+        <li><a href="/pages/about">About</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" placeholder="{{ 'general.search' | t }}" aria-label="{{ 'general.search' | t }}">
+    </form>
+
+    <button class="mobile-toggle" type="button" aria-expanded="false" aria-label="Menu" data-mobile-toggle>
+      ☰
+    </button>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

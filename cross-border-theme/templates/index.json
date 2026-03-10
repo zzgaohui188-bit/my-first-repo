@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "hero": { "type": "hero-banner", "blocks": { "slide_1": { "type": "slide", "settings": { "heading": "Global B2B Product Sourcing", "subheading": "Find reliable products with verified certifications.", "cta_text": "Browse Products" } } }, "block_order": ["slide_1"], "settings": {} },
+    "categories": { "type": "category-grid", "settings": { "heading": "Product Categories" } },
+    "hot": { "type": "featured-products", "settings": { "heading": "Hot Products" } },
+    "new": { "type": "new-products", "settings": { "heading": "New Products" } },
+    "advantages": { "type": "platform-advantages", "settings": { "heading": "Platform Advantages" } },
+    "certs": { "type": "certifications", "settings": { "heading": "Certifications" } },
+    "contact": { "type": "contact-form", "settings": { "heading": "Contact CTA" } }
+  },
+  "order": ["hero", "categories", "hot", "new", "advantages", "certs", "contact"]
+}

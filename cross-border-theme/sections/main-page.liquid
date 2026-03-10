@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+    <h1 class="section-heading">{{ page.title }}</h1>
+    <div class="rte">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main page",
+  "settings": []
+}
+{% endschema %}

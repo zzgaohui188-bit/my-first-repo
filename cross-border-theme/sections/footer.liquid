@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="container">
+    <p>{{ settings.footer_text }}</p>
+    {%- if settings.whatsapp_link != blank -%}
+      <p><a href="{{ settings.whatsapp_link }}" target="_blank" rel="noopener">WhatsApp</a></p>
+    {%- endif -%}
+    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</small>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

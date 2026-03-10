@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <div class="cert-row">
+      {%- for block in section.blocks -%}
+        {% render 'cert-badge', label: block.settings.label %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Certifications",
+  "max_blocks": 12,
+  "settings": [{ "type": "text", "id": "heading", "label": "Heading", "default": "Certifications" }],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "Certification",
+      "settings": [{ "type": "text", "id": "label", "label": "Label", "default": "FDA" }]
+    }
+  ],
+  "presets": [{ "name": "Certifications" }]
+}
+{% endschema %}
