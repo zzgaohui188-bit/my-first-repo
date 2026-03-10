@@ -1,4 +1,16 @@
 <header class="site-header">
+  {%- if section.settings.announcement_text != blank -%}
+    <div class="announcement-bar">
+      <div class="container announcement-inner">
+        {%- if section.settings.announcement_link != blank -%}
+          <a href="{{ section.settings.announcement_link }}">{{ section.settings.announcement_text }}</a>
+        {%- else -%}
+          <span>{{ section.settings.announcement_text }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
   <div class="container header-inner">
     <a class="logo" href="{{ routes.root_url }}">
       {%- if settings.logo != blank -%}
@@ -13,6 +25,7 @@
         <li><a href="{{ routes.root_url }}">Home</a></li>
         <li><a href="{{ routes.all_products_collection_url }}">Products</a></li>
         <li><a href="/collections">Categories</a></li>
+        <li><a href="/pages/suppliers">Suppliers</a></li>
         <li><a href="/pages/about">About</a></li>
         <li><a href="/pages/contact">Contact</a></li>
       </ul>
@@ -22,15 +35,22 @@
       <input type="search" name="q" placeholder="{{ 'general.search' | t }}" aria-label="{{ 'general.search' | t }}">
     </form>
 
-    <button class="mobile-toggle" type="button" aria-expanded="false" aria-label="Menu" data-mobile-toggle>
-      ☰
-    </button>
+    <div class="header-actions">
+      <button class="lang-switch" type="button">{{ section.settings.language_label }}</button>
+      <button class="mobile-toggle" type="button" aria-expanded="false" aria-label="Menu" data-mobile-toggle>
+        ☰
+      </button>
+    </div>
   </div>
 </header>
 
 {% schema %}
 {
   "name": "Header",
-  "settings": []
+  "settings": [
+    { "type": "text", "id": "announcement_text", "label": "Announcement text", "default": "Free global product sourcing platform | Thousands of verified products" },
+    { "type": "url", "id": "announcement_link", "label": "Announcement link" },
+    { "type": "text", "id": "language_label", "label": "Language switch label", "default": "EN" }
+  ]
 }
 {% endschema %}

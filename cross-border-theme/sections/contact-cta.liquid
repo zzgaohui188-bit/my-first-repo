@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="container">
+    <div class="contact-cta">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      <a class="btn btn-primary" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact CTA",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Looking for a product supplier?" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Send us an inquiry and our sourcing team will respond within 24 hours." },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Contact Us" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Contact CTA" }]
+}
+{% endschema %}

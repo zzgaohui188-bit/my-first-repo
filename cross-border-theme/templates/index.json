@@ -1,12 +1,24 @@
 {
   "sections": {
-    "hero": { "type": "hero-banner", "blocks": { "slide_1": { "type": "slide", "settings": { "heading": "Global B2B Product Sourcing", "subheading": "Find reliable products with verified certifications.", "cta_text": "Browse Products" } } }, "block_order": ["slide_1"], "settings": {} },
-    "categories": { "type": "category-grid", "settings": { "heading": "Product Categories" } },
-    "hot": { "type": "featured-products", "settings": { "heading": "Hot Products" } },
-    "new": { "type": "new-products", "settings": { "heading": "New Products" } },
+    "hero": {
+      "type": "hero-banner",
+      "blocks": {
+        "cat_1": { "type": "category", "settings": { "label": "Beauty" } },
+        "cat_2": { "type": "category", "settings": { "label": "Health" } },
+        "cat_3": { "type": "category", "settings": { "label": "Oral Care" } },
+        "cat_4": { "type": "category", "settings": { "label": "Home" } },
+        "slide_1": { "type": "slide", "settings": { "heading": "Global B2B Product Sourcing", "subheading": "Find reliable products with verified certifications.", "cta_text": "Explore Products" } }
+      },
+      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "slide_1"],
+      "settings": {}
+    },
+    "strip": { "type": "category-icon-strip", "settings": {} },
+    "hot": { "type": "featured-products", "settings": { "heading": "Hot Products", "products_to_show": 8 } },
+    "showcase": { "type": "product-showcase", "settings": { "heading": "Skincare Products", "products_to_show": 4 } },
     "advantages": { "type": "platform-advantages", "settings": { "heading": "Platform Advantages" } },
     "certs": { "type": "certifications", "settings": { "heading": "Certifications" } },
-    "contact": { "type": "contact-form", "settings": { "heading": "Contact CTA" } }
+    "markets": { "type": "global-market", "settings": { "heading": "Global Markets" } },
+    "contact": { "type": "contact-cta", "settings": { "heading": "Looking for a product supplier?", "button_text": "Contact Us" } }
   },
-  "order": ["hero", "categories", "hot", "new", "advantages", "certs", "contact"]
+  "order": ["hero", "strip", "hot", "showcase", "advantages", "certs", "markets", "contact"]
 }

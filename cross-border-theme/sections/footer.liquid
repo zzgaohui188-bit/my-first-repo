@@ -1,9 +1,35 @@
 <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo" href="{{ routes.root_url }}">
+        {%- if settings.logo != blank -%}
+          {{ settings.logo | image_url: width: 160 | image_tag: alt: shop.name }}
+        {%- else -%}
+          <strong>{{ shop.name }}</strong>
+        {%- endif -%}
+      </a>
+      <p>{{ settings.footer_text }}</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Products</a></li>
+        <li><a href="/collections">Categories</a></li>
+        <li><a href="/pages/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      {%- if settings.whatsapp_link != blank -%}
+        <p><a href="{{ settings.whatsapp_link }}" target="_blank" rel="noopener">WhatsApp</a></p>
+      {%- endif -%}
+      <p><a href="/pages/contact">Send inquiry</a></p>
+    </div>
+  </div>
   <div class="container">
-    <p>{{ settings.footer_text }}</p>
-    {%- if settings.whatsapp_link != blank -%}
-      <p><a href="{{ settings.whatsapp_link }}" target="_blank" rel="noopener">WhatsApp</a></p>
-    {%- endif -%}
     <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</small>
   </div>
 </footer>
