@@ -6,7 +6,7 @@
   </a>
   <div class="card-content">
     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-    <p class="product-meta">{{ product.vendor }}</p>
+    <p class="product-meta">SKU: {{ product.selected_or_first_available_variant.sku | default: 'N/A' }}</p>
     <div class="cert-row">
       {%- if product.metafields.custom.cert_fda == true or product.metafields.custom.cert_fda.value == true -%}
         {% render 'cert-badge', label: 'FDA' %}

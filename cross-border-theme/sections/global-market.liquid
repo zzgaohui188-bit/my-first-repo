@@ -1,0 +1,32 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    <div class="market-grid">
+      {%- for block in section.blocks -%}
+        <div class="market-item" {{ block.shopify_attributes }}>
+          <span class="flag">{{ block.settings.flag }}</span>
+          <span>{{ block.settings.country }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Global Market",
+  "max_blocks": 12,
+  "settings": [{ "type": "text", "id": "heading", "label": "Heading", "default": "Global Markets" }],
+  "blocks": [
+    {
+      "type": "country",
+      "name": "Country",
+      "settings": [
+        { "type": "text", "id": "flag", "label": "Flag emoji", "default": "🇺🇸" },
+        { "type": "text", "id": "country", "label": "Country", "default": "USA" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Global Market" }]
+}
+{% endschema %}
